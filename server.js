@@ -209,6 +209,14 @@ app.get("/api/movies/now-playing", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT} 에서 실행 중`);
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
 });
+
+module.exports = app;
+
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`http://localhost:${PORT} 에서 실행 중`);
+  });
+}
