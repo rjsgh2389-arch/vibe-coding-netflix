@@ -51,7 +51,9 @@ const MOVIE_ROWS = [
   },
 ];
 
-app.use(express.static(path.join(__dirname)));
+const publicDir = path.join(__dirname, "public");
+
+app.use(express.static(publicDir));
 
 function getApiKey() {
   return process.env.TMDB_API_KEY;
@@ -210,7 +212,7 @@ app.get("/api/movies/now-playing", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(publicDir, "index.html"));
 });
 
 module.exports = app;
