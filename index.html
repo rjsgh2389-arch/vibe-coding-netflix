@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix - 영화</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__logo">NETFLIX</div>
+      <nav class="header__nav">
+        <a href="#" class="header__nav-link header__nav-link--active">홈</a>
+        <a href="#" class="header__nav-link">영화</a>
+        <a href="#" class="header__nav-link">현재 상영</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title" id="hero-title">로딩 중...</h1>
+      <p class="hero__meta" id="hero-meta"></p>
+      <p class="hero__overview" id="hero-overview"></p>
+      <button class="hero__btn">▶ 재생</button>
+    </div>
+  </section>
+
+  <main class="main" id="movie-rows">
+    <div class="loading">영화를 불러오는 중...</div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

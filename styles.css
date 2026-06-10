@@ -1,0 +1,286 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #141414;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 3%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+  transition: background 0.3s;
+}
+
+.header--scrolled {
+  background: #141414;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header__logo {
+  color: #e50914;
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.header__nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.header__nav-link {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.header__nav-link:hover,
+.header__nav-link--active {
+  color: #fff;
+  font-weight: 600;
+}
+
+.hero {
+  position: relative;
+  height: 70vh;
+  min-height: 400px;
+  background-color: #141414;
+  background-size: cover;
+  background-position: center top;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    #141414 0%,
+    rgba(20, 20, 20, 0.6) 40%,
+    rgba(20, 20, 20, 0.2) 70%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding: 0 3% 4rem;
+  max-width: 600px;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero__meta {
+  font-size: 0.95rem;
+  color: #b3b3b3;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero__overview {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #e5e5e5;
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero__btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.hero__btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: scale(1.05);
+}
+
+.main {
+  padding: 0 3% 4rem;
+  margin-top: -4rem;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.row {
+  margin-bottom: 0.5rem;
+}
+
+.row__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #e5e5e5;
+}
+
+.row__posters {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.5rem 0 1.5rem;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #555 #141414;
+}
+
+.row__posters::-webkit-scrollbar {
+  height: 6px;
+}
+
+.row__posters::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+.row__posters::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 3px;
+}
+
+.movie-card {
+  flex: 0 0 auto;
+  width: 170px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.08);
+  z-index: 10;
+}
+
+.movie-card__poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  background: #2a2a2a;
+}
+
+.movie-card__title {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #e5e5e5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  color: #b3b3b3;
+}
+
+.movie-card__date {
+  white-space: nowrap;
+}
+
+.movie-card__rating {
+  color: #46d369;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.movie-card__review {
+  margin-top: 0.35rem;
+  height: 1rem;
+  overflow: hidden;
+}
+
+.movie-card__review--empty .movie-card__review-text {
+  color: #555;
+  font-style: italic;
+}
+
+.movie-card__review-text {
+  font-size: 0.68rem;
+  line-height: 1rem;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.movie-card__review-text--exit {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.movie-card__review-text--enter {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.loading,
+.error {
+  color: #999;
+  padding: 2rem 0;
+  font-size: 1rem;
+}
+
+.error {
+  color: #e50914;
+}
+
+@media (max-width: 768px) {
+  .header__nav {
+    display: none;
+  }
+
+  .movie-card {
+    width: 120px;
+  }
+
+  .hero {
+    height: 55vh;
+  }
+}
